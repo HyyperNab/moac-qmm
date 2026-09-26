@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MOAC QMM — Strata-Oblivion Kernel</title>
-  <meta name="description" content="A 29-dimensional medical decision engine that collides pharmacogenomics, game-theoretic infectiology and deep learning into one deterministic homeostasis vector. Live demo. Research simulation — not a medical device." />
-  <meta property="og:title" content="MOAC QMM — Strata-Oblivion Kernel" />
-  <meta property="og:description" content="Run the 25-phase tensor collision live. Research simulation — not a medical device." />
+  <title>MOAC QMM — Custom Drug Delivery Protocol</title>
+  <meta name="description" content="Simulate how a specific drug behaves in a specific patient: 25 interacting biological checks — genetics, clearance, protein binding, receptor engagement — resolve into one signed result. Research simulation — not a medical device." />
+  <meta property="og:title" content="MOAC QMM — Custom Drug Delivery Protocol" />
+  <meta property="og:description" content="Targeted drug delivery simulation. Run a protocol against a full patient profile. Research simulation — not a medical device." />
   <meta property="og:type" content="website" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⌁</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,7 +21,6 @@
     <div class="nav-links">
       <a href="#how">How it works</a>
       <a href="#demo">Live demo</a>
-      <a href="#spof">SPOF register</a>
       <a href="#evidence">Evidence</a>
       <a class="nav-gh" href="https://github.com/HyyperNab/moac-qmm" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
@@ -30,22 +29,24 @@
   <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
   <header class="hero" id="top">
     <div class="hero-inner">
-      <div class="hero-kicker">MOAC QMM <span class="ver">v29.1.0</span> // STRATA-OBLIVION KERNEL</div>
-      <h1 class="hero-title">The average patient<br /><span class="accent">is a single point<br />of failure.</span></h1>
+      <div class="hero-kicker">Custom Drug Delivery Protocol</div>
+      <h1 class="hero-title">Targeted<br /><span class="accent">Drug Delivery.</span></h1>
       <p class="hero-sub">
-        A <strong>29-dimensional medical decision engine</strong> that collides pharmacogenomics,
-        physiology, game-theoretic infectiology and deep learning into <strong>one deterministic
-        homeostasis vector</strong>. No linear pathways. No hidden assumptions. When biology says no,
-        the kernel says <code class="kill">StrataRejection</code> and aborts.
+        Will <strong>this dose of this drug</strong> actually work in <strong>this patient</strong>?
+        Describe both — the patient's genetics, organ function, sleep, toxin load, and the drug's
+        dose, binding and metabolism — and the engine runs <strong>25 interacting biological
+        checks</strong> to answer. If the protocol cannot work, it tells you exactly
+        <em>why</em> and <em>where</em> it fails: metabolism, protein binding, receptor engagement,
+        organ crosstalk, timing.
       </p>
       <div class="hero-badges">
-        <span class="badge badge-cyan">25-phase tensor collision</span>
-        <span class="badge badge-magenta">deterministic Ragnar hash</span>
+        <span class="badge badge-cyan">25 biological checks, one pass</span>
+        <span class="badge badge-magenta">works for any drug via JSON</span>
         <span class="badge badge-green">152 tests · 91% coverage</span>
         <span class="badge badge-dim">MIT</span>
       </div>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#demo">▶ Run the live demo</a>
+        <a class="btn btn-primary" href="#demo">▶ Try the live demo</a>
         <a class="btn btn-ghost" href="https://github.com/HyyperNab/moac-qmm" target="_blank" rel="noopener">View source ↗</a>
       </div>
 
@@ -54,10 +55,10 @@
         <div class="disclaimer-title">⚠ Medical &amp; scientific disclaimer</div>
         <p>
           This is a <strong>research and educational simulation</strong> — <strong>not a medical
-          device</strong>, not FDA-approved, not CE-marked. Never use it for clinical decisions.
-          Every biophysical constant in the kernel is an <a href="#evidence">unverified modelling
-          assumption</a>, honestly labeled. The prescriptions rendered below are simulation output,
-          not medical advice. Always consult a licensed physician.
+          device</strong>, not FDA-approved, not CE-marked. Never use it for clinical decisions or
+          dosing. Every biophysical constant in the kernel is an <a href="#evidence">unverified
+          modelling assumption</a>, honestly labeled. The outputs below are simulation results, not
+          medical advice. Always consult a licensed physician.
         </p>
       </aside>
     </div>
@@ -66,52 +67,64 @@
   <!-- ═════════════════════ HOW IT WORKS ═════════════════════ -->
   <section class="section" id="how">
     <div class="section-head">
-      <div class="section-kicker">// KERNEL ARCHITECTURE</div>
-      <h2>How the tensor collision works</h2>
+      <div class="section-kicker">// HOW IT WORKS — AND WHY USE IT</div>
+      <h2>A digital rehearsal for a drug protocol</h2>
       <p class="section-sub">
-        Traditional models ask: <em>“What does this drug do to the average patient?”</em>
-        The kernel asks: <em>“Can THIS exact biological state survive every dimension at once?”</em>
+        In real patients, a drug never acts alone. Its fate depends on the patient's genome, kidney
+        and liver, albumin level, sleep quality, gut bacteria, even the time of day it is taken.
+        Textbook dosing assumes a healthy "average patient" — and that average does not exist.
+        This engine lets you rehearse a protocol against a <em>full</em> patient profile before
+        reality does the experiment for you.
       </p>
     </div>
 
     <div class="cards">
       <article class="card">
-        <div class="card-num">01</div>
-        <h3>No average patients</h3>
-        <p>A CYP2C19 <code>*17/*17</code> ultra-rapid metabolizer gets 35% PPI efficacy on a standard dose.
-        The genomic tensor hardcodes metabolic reality — and rare genotypes thin the Bayesian evidence
-        base for “average patient” assumptions.</p>
+        <div class="card-num">01 — WHAT IT DOES</div>
+        <h3>Two inputs, one verdict</h3>
+        <p>
+          You provide two things: a <strong>patient profile</strong> — CYP450 genetics, kidney and
+          liver function, albumin, organ states, sleep architecture, toxins, microbiome — and a
+          <strong>drug protocol</strong> — dose, interval, protein binding, metabolism pathway,
+          receptor affinity, therapeutic window. The engine collides them through 25 simultaneous
+          biological checks and returns one signed result: the protocol survived, or it aborted
+          with the named reason.
+        </p>
       </article>
       <article class="card">
-        <div class="card-num">02</div>
-        <h3>Everything collides at once</h3>
-        <p>Hypoxia derates CYP450. Albumin displacement spikes free fractions. The microbiome eats your
-        drug. Sleep debt kills glymphatic clearance. 25 phases compute every interaction
-        <em>simultaneously</em> — an ODE here, a Monte Carlo there, a Nash equilibrium in between.</p>
+        <div class="card-num">02 — HOW IT THINKS</div>
+        <h3>Everything interacts at once</h3>
+        <p>
+          Low albumin doesn't just lower albumin — it spikes the <em>unbound fraction</em> of your
+          drug. Hypoxia doesn't just lower oxygen — it derates the very liver enzymes clearing the
+          drug. The engine models these couplings explicitly: a Monte-Carlo simulation decides
+          receptor engagement, a differential equation integrates the immune response, a
+          degradation graph propagates organ failure, and a game-theory matrix checks whether a
+          pathogen could outmaneuver the treatment.
+        </p>
       </article>
       <article class="card">
-        <div class="card-num">03</div>
-        <h3>Kill-switches, not averages</h3>
-        <p>GFR &lt; 30 → <code class="kill">CLEARANCE-KILL</code>. IL-6 &gt; 80 and TNF-α &gt; 50 →
-        <code class="kill">CYTOKINE-STORM</code>. Two organs failing → <code class="kill">CROSSTALK-KILL</code>.
-        When a biological constraint is violated, the engine aborts with the exact reason — it never
-        averages its way past reality.</p>
+        <div class="card-num">03 — HONEST FAILURE</div>
+        <h3>It refuses instead of averaging</h3>
+        <p>
+          When a hard biological limit is breached — kidney function below the safe floor, a
+          cytokine storm brewing, two drugs waging war on the same albumin — the engine
+          <em>aborts</em> and names the constraint. It never averages its way past a limit. That is
+          the feature: you learn the specific bottleneck your protocol hits, instead of a
+          reassuring number that hides it.
+        </p>
       </article>
       <article class="card">
-        <div class="card-num">04</div>
-        <h3>The pathogen plays chess</h3>
-        <p>The v28 payoff matrix has <strong>zero pure Nash equilibria</strong>: against a strategic
-        pathogen there is no stable deterministic treatment. The kernel computes minimax, learns payoffs
-        from outcomes (adaptive matrix) and pre-trains a Q-learning agent before recommending.</p>
+        <div class="card-num">04 — WHY USE IT</div>
+        <h3>Build intuition safely</h3>
+        <p>
+          Use it to <strong>explore, teach and stress-test</strong>: see how a CYP2C19 ultra-rapid
+          metabolizer loses 65% of a standard PPI dose; how hypoalbuminemia turns a "normal" dose
+          into a supra-therapeutic one; how once-daily dosing fails when the simulated half-life
+          is 20 minutes. It is a reasoning sandbox for pharmacology — never a dosing tool. All
+          findings are model output from unverified assumptions.
+        </p>
       </article>
-    </div>
-
-    <div class="phase-map">
-      <div class="phase-map-head">
-        <h3>The 25 phases</h3>
-        <span class="phase-map-hint">hover a phase for detail — the live demo traces every single one</span>
-      </div>
-      <div class="phase-grid" id="phaseGrid"></div>
     </div>
   </section>
 
@@ -121,47 +134,56 @@
       <div class="section-kicker">// LIVE DEMO — REAL KERNEL, SERVERLESS</div>
       <h2>Collide a patient</h2>
       <p class="section-sub">
-        This runs the <strong>actual v29.1.0 Python engine</strong> in a serverless function — same
-        physics, same constants, same code as the GitHub package. Pick a profile, flip the learning
-        layer, seed the Monte Carlo, and watch 25 phases resolve into one signed state vector.
+        The <strong>real Python engine</strong> runs in a serverless function — same physics and
+        constants as the GitHub package. The built-in profiles simulate <strong>esomeprazole</strong>
+        (a PPI) in two very different patients. To simulate <strong>any other drug</strong> —
+        valproate, warfarin, an antibiotic — select <strong>“Custom JSON”</strong> and paste your
+        drug protocol into the editor that appears in the left panel. Fields you omit fall back to
+        safe schema defaults.
       </p>
+    </div>
+
+    <div class="steps">
+      <div class="step"><b>1</b> Pick a profile — or paste your own drug JSON under “Custom JSON”.</div>
+      <div class="step"><b>2</b> Tune the seed and the optional learning layer (defaults are fine).</div>
+      <div class="step"><b>3</b> Press <em>EXECUTE COLLISION</em> — the interpretation appears first, the raw numbers below.</div>
     </div>
 
     <div class="demo-grid">
       <!-- ── Controls ── -->
       <div class="panel controls">
-        <h3 class="panel-title">Patient telemetry</h3>
+        <h3 class="panel-title">Patient &amp; drug protocol</h3>
 
         <div class="preset-row" id="presetRow">
-          <button class="preset-btn active" data-preset="edge">v28 Edge Case</button>
-          <button class="preset-btn" data-preset="healthy">Healthy Reference</button>
+          <button class="preset-btn active" data-preset="edge">Esomeprazole · Edge</button>
+          <button class="preset-btn" data-preset="healthy">Esomeprazole · Healthy</button>
+          <button class="preset-btn" data-preset="valproate">Valproate 500mg</button>
           <button class="preset-btn" data-preset="custom">Custom JSON</button>
         </div>
 
-        <div class="preset-desc" id="presetDesc">
-          The original v28 demonstration profile: CYP2C19 *17/*17 ultra-rapid metabolizer, H. pylori
-          in biofilm mode, dysbiotic microbiome, chronic toxin load, sleep-deprived, catabolic — with
-          the full learning layer enabled.
-        </div>
+        <div class="preset-desc" id="presetDesc"></div>
 
         <div class="custom-json-wrap hidden" id="customJsonWrap">
-          <label for="customJson">Telemetry JSON (partial — schema defaults fill the rest)</label>
+          <label for="customJson">Paste your drug protocol JSON here ↓</label>
           <textarea id="customJson" spellcheck="false"></textarea>
+          <div class="json-hint">
+            Partial JSON is fine — any field you leave out is filled by the schema's default
+            (e.g. genetics default to normal metabolizer, GFR 90, no toxins).
+          </div>
           <div class="json-error hidden" id="jsonError"></div>
         </div>
 
         <div class="ctl-row">
           <label for="seedInput">RNG seed</label>
           <input id="seedInput" type="number" min="0" max="4294967295" value="42" />
-          <span class="ctl-hint">same seed → same Ragnar hash, always</span>
         </div>
 
         <div class="ctl-toggles">
-          <label class="toggle"><input type="checkbox" id="tNeural" checked /><span></span> Neural PK <em>(MC-Dropout MLP)</em></label>
+          <label class="toggle"><input type="checkbox" id="tNeural" checked /><span></span> Neural PK <em>(ML estimate)</em></label>
           <label class="toggle"><input type="checkbox" id="tCalib" checked /><span></span> Bayesian calibration</label>
           <label class="toggle"><input type="checkbox" id="tAdapt" checked /><span></span> Adaptive payoff matrix</label>
           <label class="toggle"><input type="checkbox" id="tRL" checked /><span></span> RL optimizer <em>(Q-learning)</em></label>
-          <label class="toggle toggle-danger"><input type="checkbox" id="tStrict" /><span></span> Strict receptor gate <em>(v28 kill-switch)</em></label>
+          <label class="toggle toggle-danger"><input type="checkbox" id="tStrict" /><span></span> Strict receptor gate <em>(abort on low engagement)</em></label>
         </div>
 
         <button class="btn btn-primary btn-run" id="runBtn">▶ EXECUTE COLLISION</button>
@@ -172,20 +194,25 @@
       <div class="panel results" id="results">
         <div class="results-empty" id="resultsEmpty">
           <div class="empty-glyph">⌁</div>
-          <p>Awaiting telemetry.<br />The kernel is idle — 29 dimensions on standby.</p>
+          <p>Awaiting a patient profile.<br />Pick a preset or paste a drug protocol, then execute.</p>
         </div>
 
         <div class="results-body hidden" id="resultsBody">
           <div class="status-banner" id="statusBanner"></div>
 
-          <h3 class="panel-title small">Compiled state vector</h3>
-          <div class="metrics" id="metrics"></div>
+          <div id="interpretationWrap">
+            <h3 class="panel-title small">Clinical interpretation</h3>
+            <div class="interpret-note">Plain-language translation of the simulation output — still model results from unverified assumptions, not medical advice.</div>
+            <div class="findings" id="findings"></div>
+          </div>
 
-          <h3 class="panel-title small">Phase trace <span class="count" id="phaseCount"></span></h3>
-          <div class="phase-trace" id="phaseTrace"></div>
+          <div id="metricsWrap">
+            <h3 class="panel-title small">Compiled state vector</h3>
+            <div class="metrics" id="metrics"></div>
+          </div>
 
           <div id="rxWrap">
-            <h3 class="panel-title small">Stable homeostasis optimizer — prescriptions</h3>
+            <h3 class="panel-title small">Stabilization prescriptions</h3>
             <div class="rx-grid" id="rxGrid"></div>
           </div>
 
@@ -198,31 +225,15 @@
     </div>
   </section>
 
-  <!-- ═════════════════════ SPOF REGISTER ═════════════════════ -->
-  <section class="section" id="spof">
-    <div class="section-head">
-      <div class="section-kicker">// FAILURE MODE LEDGER</div>
-      <h2>49 Single Points of Failure, eliminated</h2>
-      <p class="section-sub">
-        Every assumption that kills patients in linear models — and every engineering failure mode
-        that shipped broken in the draft — is registered, numbered and annihilated.
-      </p>
-    </div>
-    <div class="spof-grid" id="spofGrid"></div>
-    <p class="spof-more">
-      Full register with resolution modules: <a href="https://github.com/HyyperNab/moac-qmm/blob/main/docs/spof_register.md" target="_blank" rel="noopener">docs/spof_register.md ↗</a>
-    </p>
-  </section>
-
   <!-- ═════════════════════ EVIDENCE ═════════════════════ -->
   <section class="section" id="evidence">
     <div class="section-head">
       <div class="section-kicker">// GROUND TRUTH OR SILENCE</div>
       <h2>No fabricated citations. Ever.</h2>
       <p class="section-sub">
-        The v28 kernel shipped constants without sources. Rather than inventing references to look
-        scientific, every constant carries an <strong>honest provenance tier</strong> in a register the
-        test suite enforces.
+        The kernel's constants shipped without sources. Rather than inventing references to look
+        scientific, every constant carries an <strong>honest provenance tier</strong> in a register
+        the test suite enforces.
       </p>
     </div>
     <div class="cards cards-evidence">
@@ -253,7 +264,7 @@
   <footer class="footer">
     <div class="footer-disclaimer">
       ⚠ <strong>Not a medical device.</strong> MOAC QMM is a research and educational simulation.
-      All constants are unverified kernel assumptions. Never use for clinical decisions.
+      All constants are unverified kernel assumptions. Never use for clinical decisions or dosing.
       Always consult a licensed physician.
     </div>
     <div class="footer-links">
@@ -267,7 +278,7 @@
       <span>·</span>
       <a href="https://github.com/HyyperNab/moac-qmm/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>
     </div>
-    <div class="footer-note">MOAC QMM v29.1.0 · deterministic by seed · stateless by design · no telemetry of yours is stored</div>
+    <div class="footer-note">Custom Drug Delivery Protocol · stateless by design · nothing you paste is stored</div>
   </footer>
 
   <script src="/assets/app.js"></script>
