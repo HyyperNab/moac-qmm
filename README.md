@@ -192,6 +192,7 @@ Linux/macOS/Windows on every push and PR.
 
 ## Documentation
 
+- [Live demo](demo/README.md) — interactive one-page deployment (Vercel)
 - [Architecture](docs/architecture.md) — engine pipeline and model layer
 - [SPOF Register](docs/spof_register.md) — every eliminated failure mode
 - [Deep Learning](docs/deep_learning.md) — the v29 learning layer

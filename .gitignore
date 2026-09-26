@@ -41,3 +41,5 @@ venv/
 # Project
 simulation_result.json
 *.log
+demo/.python-version
+demo/.vercel/
