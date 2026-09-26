@@ -12,9 +12,12 @@ Public-internet hardening (this endpoint is world-reachable):
 - stateless: nothing is persisted, nothing is logged about patients
 """
 
-from __future__ import annotations
-
+import sys
+from pathlib import Path
 from typing import Any
+
+# Ensure src/ is in the python path for Vercel
+sys.path.append(str(Path(__file__).parent / "src"))
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field, ValidationError

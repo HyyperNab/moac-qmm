@@ -1,18 +1,15 @@
 {
-  "name": "moac-qmm-demo",
-  "framework": null,
-  "buildCommand": null,
-  "outputDirectory": "demo/public",
+  "name": "moac-qmm-protocol",
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/demo/index.py"
+      "destination": "/index.py"
     },
     {
       "source": "/(.*)",
-      "destination": "/demo/public/$1"
+      "destination": "/$1"
     }
   ]
 }
