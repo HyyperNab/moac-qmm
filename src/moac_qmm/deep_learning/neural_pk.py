@@ -67,25 +67,33 @@ class NeuralPKPredictor:
         output_size = len(self.OUTPUT_NAMES)
 
         # Xavier initialization
-        self.W1 = self.rng.standard_normal((input_size, hidden_size)) * np.sqrt(2.0 / input_size)
-        self.b1 = np.zeros(hidden_size)
-        self.W2 = self.rng.standard_normal((hidden_size, hidden_size)) * np.sqrt(2.0 / hidden_size)
-        self.b2 = np.zeros(hidden_size)
-        self.W3 = self.rng.standard_normal((hidden_size, output_size)) * np.sqrt(2.0 / hidden_size)
-        self.b3 = np.zeros(output_size)
+        self.W1: np.ndarray = self.rng.standard_normal((input_size, hidden_size)) * np.sqrt(
+            2.0 / input_size
+        )
+        self.b1: np.ndarray = np.zeros(hidden_size)
+        self.W2: np.ndarray = self.rng.standard_normal((hidden_size, hidden_size)) * np.sqrt(
+            2.0 / hidden_size
+        )
+        self.b2: np.ndarray = np.zeros(hidden_size)
+        self.W3: np.ndarray = self.rng.standard_normal((hidden_size, output_size)) * np.sqrt(
+            2.0 / hidden_size
+        )
+        self.b3: np.ndarray = np.zeros(output_size)
 
-        self.feature_mean = np.zeros(input_size)
-        self.feature_std = np.ones(input_size)
-        self.output_mean = np.zeros(output_size)
-        self.output_std = np.ones(output_size)
+        self.feature_mean: np.ndarray = np.zeros(input_size)
+        self.feature_std: np.ndarray = np.ones(input_size)
+        self.output_mean: np.ndarray = np.zeros(output_size)
+        self.output_std: np.ndarray = np.ones(output_size)
 
     @staticmethod
     def _relu(x: np.ndarray) -> np.ndarray:
-        return np.maximum(0, x)
+        activated: np.ndarray = np.maximum(0, x)
+        return activated
 
     @staticmethod
     def _relu_deriv(x: np.ndarray) -> np.ndarray:
-        return (x > 0).astype(float)
+        derivative: np.ndarray = (x > 0).astype(float)
+        return derivative
 
     def _forward(self, x: np.ndarray) -> tuple[np.ndarray, dict[str, np.ndarray]]:
         """Forward pass. Returns output and cache for backprop."""
@@ -127,10 +135,12 @@ class NeuralPKPredictor:
         return grads
 
     def _normalize_features(self, features: np.ndarray) -> np.ndarray:
-        return (features - self.feature_mean) / (self.feature_std + 1e-8)
+        normalized: np.ndarray = (features - self.feature_mean) / (self.feature_std + 1e-8)
+        return normalized
 
     def _denormalize_output(self, output: np.ndarray) -> np.ndarray:
-        return output * self.output_std + self.output_mean
+        denormalized: np.ndarray = output * self.output_std + self.output_mean
+        return denormalized
 
     def train(
         self,
@@ -188,7 +198,7 @@ class NeuralPKPredictor:
 
                 pred, cache = self._forward(xb)
                 loss = np.mean((pred - yb) ** 2)
-                epoch_loss += loss
+                epoch_loss += float(loss)
                 n_batches += 1
 
                 grads = self._backward(cache, yb, pred)
@@ -275,7 +285,8 @@ class NeuralPKPredictor:
         a2 *= mask2
 
         z3 = a2 @ self.W3 + self.b3
-        return z3, {}
+        result: np.ndarray = z3
+        return result, {}
 
     def _heuristic_predict(self, features: dict[str, Any]) -> dict[str, Any]:
         """Fallback when the model is not trained — biophysical heuristics."""
