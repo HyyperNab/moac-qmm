@@ -1,0 +1,48 @@
+name: Bug report
+description: Report a defect in the kernel
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ MOAC QMM is a research/educational simulation — **not a medical device**.
+        Please do not submit clinical questions or real patient data.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened, and what did you expect instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Telemetry (synthetic!) + code. No real patient data.
+      render: python
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      render: shell
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: "29.1.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: spof
+    attributes:
+      label: Is this a SPOF (Single Point of Failure)?
+      options:
+        - "Yes — a failure mode the register doesn't cover yet"
+        - "No — a plain defect"

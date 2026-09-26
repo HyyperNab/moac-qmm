@@ -1,0 +1,36 @@
+name: Feature request
+description: Propose a new SPOF elimination or capability
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The preferred feature here is a **new SPOF elimination** — see
+        [docs/spof_register.md](../docs/spof_register.md) for the v30 roadmap.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Which failure mode does this eliminate?
+      description: Which SPOF number (existing or new)?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Contract check
+      options:
+        - label: No fabricated citations — new constants ship with honest evidence tiers
+          required: true
+        - label: No clinical-use claims — research/educational only
+          required: true
+        - label: No real patient data in examples or tests
+          required: true
